@@ -1,0 +1,35 @@
+1.
+
+Name: Jeremi Maciejewski
+Genome: X1
+Bact_species:
+    Jest to bakteria należąca do rodziny Chlamydiaceae, na co wskazuje wyszukanie za pomocą narzędzia nucleotide BLAST.
+    Są to pasożytnicze, gram-ujemne bakterie.
+    Część scaffoldów wykazuje znaczne podobieństwo do genomu mitochondrialnego małp z rodzaju Chlorocebus, co być może jest zanieczyszczeniem wskazującym na pozyskanie prób od zarażonych małp z tego rodzaju.
+GitHub: https://github.com/jermac-amu/BMiW
+Total reads Illumina: 557438
+Total nucleotides NanoPore: 153286927
+NanoPore - mean, median of read lengths: 1427.64, 176
+Average GC content: Illumina - 40.82%, NanoPore - 39.61%
+Histogram of read lengths: charts/histogram_nanopore_raw.png
+Illumina filtering criteria:
+    W gruncie rzeczy dostaliśmy gotowe polecenie, ale:
+    - przycinanie zarówno od początku jak i końca sekwencji
+    - okno filtrowania - 4 (standard)
+    - próg średniej jakości do przycinania - 30 (to dość dobra jakość)
+    - minimalna długość odczytu 50 (większość odczytów mamy długości 150, odczyty z Illuminy nie bywają krótsze niż 50)
+Illumina filtering report: Quality_reports/fastp.pdf
+NanoPore filtering criteria:
+    NanoPlot: nie przeprowadza filtrowania?
+    porechop: domyślne
+    Filtlong:
+    - minimalna średnia jakość - 10 (Jakość odczytów jest zasadniczo nienajlepsza, większość naszych odczytów ma średnią jakość 10-15, [nawet po przycięciu porechop] więc gdyby wyrzucić więcej, niewiele by zostało)
+    - minimalna długość odczytu - 5000 (N50 długości to nieco ponad 12.5kbp, natomiast średnia długość to ok. 1.5kbp. Do złożenia hybrydowego odczyty NanoPore powinny być dość długie, wybrałem więc coś pomiędzy N50 a średnią, aby zbalansować długość z pokryciem)
+NanoPore quality report (before filtering): Quality_reports/NanoPlot-report-before.pdf
+NanoPore quality report (after filtering): Quality_reports/NanoPlot-report-after.pdf
+SPADES report: Quality_report/spades.log.pdf
+MegaHIT report: Quality_reports/megahit_error.png
+Assembly comparison:
+    Jakościowo oraz pod względem spójności SPADES oraz Flye nie różnią się znacząco.
+    Złożenie ze SPADES jest nieco dłuższe.
+Quast report: Quality_reports/quast_report.pdf
