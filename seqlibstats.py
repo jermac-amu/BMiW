@@ -37,7 +37,7 @@ def verify_files(args):
 
         absp = filep.resolve()
         if not absp.exists():
-            raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), filename=str(absp))
+            raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), str(absp))
         elif not absp.is_file():
             raise ValueError(f"File \"{str(absp)}\" is not a regular file")
         elif not os.access(absp, os.R_OK):
@@ -168,9 +168,9 @@ if __name__ == "__main__":
     print(f"Total number of nucleotides: {read_lengths.sum(dtype=np.uint64):,}")
     print(f"Mean read length: {read_lengths.mean(dtype=np.float32):,.2f}")
     if num_reads % 2 == 0:
-        median = (read_lengths[num_reads//2] + read_lengths[num_reads//2 + 1])/2
+        median = (read_lengths[num_reads//2-1] + read_lengths[num_reads//2])/2
     else:
-        median = read_lengths[num_reads//2+1]
+        median = read_lengths[num_reads//2]
 
     print(f"Median read length: {median:,}")
     print(f"Mean GC pair content: {gc_percents.mean(dtype=np.float32)*100:.2f}%")
