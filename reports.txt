@@ -1,5 +1,4 @@
 1.
-
 Name: Jeremi Maciejewski
 Genome: X1
 Bact_species:
@@ -33,3 +32,15 @@ Assembly comparison:
     Jakościowo oraz pod względem spójności SPADES oraz Flye nie różnią się znacząco.
     Złożenie ze SPADES jest nieco dłuższe.
 Quast report: Quality_reports/quast_report.pdf
+
+
+2.
+Genes with known function:
+    light - 478
+    full - 773
+Genes with unknown function:
+    light - 585
+    full - 290
+Gene length median:
+    W obu - 888
+GitHub: W obu - 888
